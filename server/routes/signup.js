@@ -8,13 +8,7 @@ signup.get('/', (req, res) => {
 });
 
 signup.post('/', userModelController.createUser, (req, res) => {
-    res.status(200).json(res.locals.user)
+    res.status(200).redirect('/profile');
 })
-
-// signup.post('/', (req, res) => {
-//     console.log(req.body);
-    
-//     // res.status(200).json(res.locals.user)
-// })
 
 module.exports = signup;

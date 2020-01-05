@@ -14,7 +14,16 @@ userModelController.createUser = (req, res, next) => {
     db.query(text, values)
         .then(response => console.log(response))
         .catch(err => console.log(err))
+    next();
+}
 
+userModelController.getUser = (req, res, next) => {
+    const { username, password } = req.body;
+    const text = `SELECT username FROM users WHERE username = ${username} AND password = ${password}`;
+    db.query(text)
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    next();
 }
 
 module.exports = userModelController;
